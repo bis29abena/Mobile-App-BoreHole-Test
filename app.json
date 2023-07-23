@@ -5,6 +5,12 @@
       "bundler": "metro"
     },
     "name": "Engineer",
-    "slug": "Engineer"
+    "slug": "engineer",
+    "extra": {
+      "eas": {
+        "projectId": "b3d505d5-4217-4887-87f3-4a92c63e6916"
+      }
+    },
+    "owner": "bis29"
   }
 }
