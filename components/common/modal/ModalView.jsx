@@ -63,6 +63,7 @@ const ModalView = ({ modalVisible, setModalVisible, data, setData }) => {
                 style={styles.input}
                 placeholder="please separate values with commas"
                 placeholderTextColor="gray"
+                keyboardType="numeric"
                 name="n"
                 value={data.n}
                 onChangeText={(text) =>

@@ -18,14 +18,14 @@ const Step = () => {
   } else if (params.id == "Yield") {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-        <Stack.Screen options={{ headerTitle: "" }} />
+        <Stack.Screen options={{ headerTitle: "Yield" }} />
         <Yield />
       </SafeAreaView>
     );
   } else if (params.id == "Pump-Sizing") {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-        <Stack.Screen options={{ headerTitle: "" }} />
+        <Stack.Screen options={{ headerTitle: "Pump Sizing" }} />
         <Pump_Sizing />
       </SafeAreaView>
     );
