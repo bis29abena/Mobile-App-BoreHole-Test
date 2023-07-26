@@ -27,28 +27,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
         </Text>
       </View>
 
-      <View style={styles.searchContainer}>
-        <View style={styles.searchWrapper}>
-          <TextInput
-            style={styles.searchInput}
-            value={searchTerm}
-            onChangeText={(text) => {
-              setSearchTerm(text);
-            }}
-            placeholder="Please what type of test do you want"
-            placeholderTextColor="gray"
-
-          />
-        </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
-          <Image
-            source={icons.search}
-            resizeMode="contain"
-            style={styles.searchBtnImage}
-          />
-        </TouchableOpacity>
-      </View>
-
+      
       <View style={styles.tabsContainer}>
         <FlatList
           data={formularTypes}

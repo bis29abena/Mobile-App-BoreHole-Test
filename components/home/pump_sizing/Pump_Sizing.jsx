@@ -18,13 +18,13 @@ const Pump_Sizing = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [data, setData] = useState({
-    Q: "",
+    Pumping_rate: "",
     P: "",
-    y: "",
-    v: "",
+    Pump_efficiency: "",
+    Superficial_velocity: "",
     g: "",
-    h: "",
-    n: ""
+    Elevation_head: "",
+    
   });
   return (
     <ScrollView
@@ -35,32 +35,34 @@ const Pump_Sizing = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <View style={{ marginTop: SIZES.small }}>
-        <Text style={styles.title}>Pump Sizing</Text>
-        <Text style={styles.header}>Pump Sizing = (Qpgh/3.6 x 10y) X 1.1341</Text>
-        <Text style={styles.header}>Q = Discharge (m^3/hr)</Text>
-        <Text style={styles.header}>P = Density</Text>
-        <Text style={styles.header}>g = Acceleration due to gravity</Text>
-        <Text style={styles.header}>h = Elevation head (m)</Text>
-        <Text style={styles.header}>v = Velocity (m/sec)</Text>
-        <Text style={styles.header}>
-          K = Resistance Coefficient of pipefitting
-        </Text>
-        <Text style={styles.header}>y = Pump efficiency</Text>
-      </View>
-
+      
       <View style={styles.loginPageContainer}>
         <Text style={styles.header}>Please fill all the fields</Text>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="Q"
+            placeholder="Pumping rate"
             placeholderTextColor="gray"
-            name="Q"
-            value={data.Q}
+            name="Pumping_rate"
+            value={data.Pumping_rate}
             onChangeText={(text) =>
               setData((prev) => {
-                return { ...prev, Q: text };
+                return { ...prev, Pumping_rate: text };
+              })
+            }
+          />
+        </View>
+        
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Pump efficiency"
+            placeholderTextColor="gray"
+            name="Pump_efficiency"
+            value={data.Pump_efficiency}
+            onChangeText={(text) =>
+              setData((prev) => {
+                return { ...prev, Pump_efficiency: text };
               })
             }
           />
@@ -68,69 +70,28 @@ const Pump_Sizing = () => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="P"
+            placeholder="Superficial velocity"
             placeholderTextColor="gray"
-            name="P"
-            value={data.P}
+            name="Superficial_velocity"
+            value={data.Superficial_velocity}
             onChangeText={(text) =>
               setData((prev) => {
-                return { ...prev, P: text };
+                return { ...prev, Superficial_velocity: text };
               })
             }
           />
         </View>
+        
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="y"
+            placeholder="Elevation head"
             placeholderTextColor="gray"
-            name="y"
-            value={data.y}
-            onChangeText={(text) =>
-              setData((prev) => {
-                return { ...prev, y: text };
-              })
-            }
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="v"
-            placeholderTextColor="gray"
-            name="v"
-            value={data.v}
-            onChangeText={(text) =>
-              setData((prev) => {
-                return { ...prev, v: text };
-              })
-            }
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="g"
-            placeholderTextColor="gray"
-            name="g"
-            value={data.g}
-            onChangeText={(text) =>
-              setData((prev) => {
-                return { ...prev, g: text };
-              })
-            }
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="h"
-            placeholderTextColor="gray"
-            name="h"
-            value={data.h}
+            name="Elevation_head"
+            value={data.Elevation_head}
             onChanheText={(text) =>
               setData((prev) => {
-                return { ...prev, g: text };
+                return { ...prev, Elevation_head: text };
               })
             }
           />
