@@ -17,6 +17,7 @@ import { COLORS, SIZES } from "../../../constants";
 import styles from "./nearbyjobs.style";
 
 const Yield = () => {
+  const [finalAnswer, setFinalAnswer] = useState("")
   const [data, setData] = useState({
     Final_DWL: "",
     SWL: "",
@@ -26,7 +27,13 @@ const Yield = () => {
   });
 
   const handleCalculate = () => {
-    console.log(data);
+    const ps = data.SWL - data.Buffer_
+
+    const st = data.Final_DWL - data.SWL
+
+    const answer = (data.Qt / st) * ps
+
+    setFinalAnswer(Math.round(answer))
   };
   return (
     <ScrollView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -118,6 +125,10 @@ const Yield = () => {
               })
             }
           />
+        </View>
+
+        <View>
+          <Text style={styles.header}>{finalAnswer}</Text>
         </View>
 
         <Button onPress={handleCalculate} title="Calculate" color="#0F52BA" />
