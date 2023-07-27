@@ -4,12 +4,10 @@ import {
   Text,
   TextInput,
   Button,
-  Alert,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
-  
-  Keyboard,
+  Alert,
 } from "react-native";
 
 import { COLORS, SIZES } from "../../../constants";
@@ -17,7 +15,8 @@ import { COLORS, SIZES } from "../../../constants";
 import styles from "./nearbyjobs.style";
 
 const Yield = () => {
-  const [ finalAnswer, setfinalAnswer]= useState("")
+  const [finalAnswer, setFinalAnswer] = useState("");
+
   const [data, setData] = useState({
     Final_Dynamic_water_level: "",
     Static_water_level: "",
@@ -27,33 +26,42 @@ const Yield = () => {
   });
 
   const handleCalculate = () => {
-    console.log(data);
-    const allowableDrawdown = data.Pump_Setting-data.Static_water_level-data.Buffer_
-    
-    const maximumDrawdown = data.Final_Dynamic_water_level-data.Static_water_level
-    
-    const Yield = Math.round((data.Pumping_rate/maximumDrawdown))*allowableDrawdown
-    setfinalAnswer(Yield)
-    console.log(finalAnswer)
-    console.log(Yield)
-    
-    
-    
+    var isEmpty = false;
+
+    Object.values(data).forEach((item) => {
+      if (item === "") isEmpty = true;
+    });
+
+    if (isEmpty) {
+      Alert.alert("Warning", "Please make sure all fields are filled", [
+        {
+          text: "Ok",
+          style: "cancel",
+        },
+      ]);
+    } else {
+      const Smax = data.Pump_Setting - data.Static_water_level - data.Buffer_;
+
+      const Stest = data.Final_Dynamic_water_level - data.Static_water_level;
+
+      const Yield = (data.Pumping_rate / Stest) * Smax;
+
+      setFinalAnswer(Yield.toFixed(2));
+    }
   };
   return (
     <ScrollView
-        style={{
-          flex: 1,
-          padding: 0,
-          margin: SIZES.medium,
-          backgroundColor: COLORS.lightWhite,
-        }}
-      >
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
+      style={{
+        flex: 1,
+        padding: 0,
+        margin: SIZES.medium,
+        backgroundColor: COLORS.lightWhite,
+      }}
     >
-
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+      >
         <View style={styles.loginPageContainer}>
           <Text style={styles.header}>Please fill all the fields</Text>
           <View style={styles.inputContainer}>
@@ -133,10 +141,14 @@ const Yield = () => {
             />
           </View>
 
+          
           <Button onPress={handleCalculate} title="Calculate" color="#0F52BA" />
         </View>
-      
-    </KeyboardAvoidingView>
+        <View style={styles.inputContainer}>
+            <Text style={styles.title}>
+              {finalAnswer !== "" ? `Yield= ${finalAnswer} L/min` : ""}</Text>
+          </View>
+      </KeyboardAvoidingView>
     </ScrollView>
   );
 };
