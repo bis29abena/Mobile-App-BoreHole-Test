@@ -31,7 +31,7 @@ const Graph = ({data}) => {
         console.error('Error writing file:', error);
       });
 
-    // Cleanup the temporary file when the component unmounts
+    // Cleanup the temporary file when component unmounts
     return () => {
       console.log('Component unmounted. Deleting temporary file...');
       RNFS.unlink(tempFilePath)
