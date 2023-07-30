@@ -6,6 +6,7 @@ import Welcome from "./home/welcome/Welcome";
 import Yield from "./home/nearby/Yield";
 import EngineeringFacts from "./home/popular/EngineeringFacts";
 import Pump_Sizing from "./home/pump_sizing/Pump_Sizing";
+import Graph from "./home/graph/Graph";
 
 // job details screen
 
@@ -19,5 +20,6 @@ export {
   Yield,
   EngineeringFacts,
   Pump_Sizing,
-  NearbyJobCard
+  NearbyJobCard,
+  Graph
 };

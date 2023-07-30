@@ -29,7 +29,7 @@ const Yield = () => {
     var isEmpty = false;
 
     Object.values(data).forEach((item) => {
-      if (item === "") isEmpty = true;
+      if (item === "") isEmpty = true
     });
 
     if (isEmpty) {
@@ -122,6 +122,7 @@ const Yield = () => {
                   return { ...prev, Buffer_: text };
                 })
               }
+
             />
           </View>
 
