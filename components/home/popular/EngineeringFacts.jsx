@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { View, Text, TextInput, Button, Alert,ScrollView } from "react-native";
+import { useRouter } from "expo-router";
 
 import {COLORS, SIZES } from "../../../constants";
 
@@ -7,16 +8,18 @@ import {COLORS, SIZES } from "../../../constants";
 import styles from "./popularjobs.style";
 
 const EngineeringFacts = () => {
+  const router = useRouter()
+
   const [data, setData] = useState({
     Static_water_level: "",
     Pump_Setting: "",
     Buffer_: "",
-    
-
   });
 
   const handleCalculate = () => {
-    console.log(data);
+    if (Object.values(data).length > 0){
+      router.push(`/graph/${data}`)
+    }
 
   };
   return (
