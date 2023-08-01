@@ -36,7 +36,7 @@ const Pump_Sizing = () => {
   ];
 
   const [data, setData] = useState({
-    Pumping_rate: "",
+    Yield: "",
     Pump_efficiency: "",
     Superficial_velocity: "",
     Elevation_head: "",
@@ -127,7 +127,7 @@ const Pump_Sizing = () => {
         (2 * g);
 
       const pumpSizing =
-        ((Number(data.Pumping_rate) *
+        ((Number(data.Yield) *
           p *
           g *
           (headloss + Number(data.Elevation_head))) /
@@ -138,7 +138,7 @@ const Pump_Sizing = () => {
 
       data.Elevation_head = "";
       data.Pump_efficiency = "";
-      data.Pumping_rate = "";
+      data.Yield = "";
       data.Superficial_velocity = "";
     }
   };
@@ -156,14 +156,14 @@ const Pump_Sizing = () => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="Pumping rate"
+            placeholder="Yield in m^3/hr"
             placeholderTextColor="gray"
-            name="Pumping_rate"
+            name="Yield"
             keyboardType="numeric"
-            value={data.Pumping_rate}
+            value={data.Yield}
             onChangeText={(text) =>
               setData((prev) => {
-                return { ...prev, Pumping_rate: text };
+                return { ...prev, Yield: text };
               })
             }
           />
@@ -241,7 +241,7 @@ const Pump_Sizing = () => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="please values with comma"
+            placeholder="Separate values with comma"
             placeholderTextColor="gray"
             name="n"
             value={data.n}
@@ -252,15 +252,19 @@ const Pump_Sizing = () => {
             }
           />
         </View>
-        <View>
-          <Text style={styles.title}>
-            {finalAnswer !== "" ? `Pump Sizing = ${finalAnswer}Hp` : ""}
-          </Text>
-        </View>
+        
         <Button onPress={handleCalculate} title="Calculate" color="#0F52BA" />
       </View>
+      <View style={styles.inputContainer}>
+          <Text style={styles.title}>
+          
+            {finalAnswer !== "" ? `Pump Size =${finalAnswer}Hp` : ""}
+             
+          </Text>
+        </View>
     </ScrollView>
   );
 };
 
 export default Pump_Sizing;
+

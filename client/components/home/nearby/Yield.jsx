@@ -29,7 +29,7 @@ const Yield = () => {
     var isEmpty = false;
 
     Object.values(data).forEach((item) => {
-      if (item === "") isEmpty = true;
+      if (item === "") isEmpty = true
     });
 
     if (isEmpty) {
@@ -122,6 +122,7 @@ const Yield = () => {
                   return { ...prev, Buffer_: text };
                 })
               }
+
             />
           </View>
 
@@ -141,11 +142,13 @@ const Yield = () => {
             />
           </View>
 
-          <View>
-            <Text style={styles.title}>{`${finalAnswer} L/min`}</Text>
-          </View>
+          
           <Button onPress={handleCalculate} title="Calculate" color="#0F52BA" />
         </View>
+        <View style={styles.inputContainer}>
+            <Text style={styles.title}>
+              {finalAnswer !== "" ? `Yield= ${finalAnswer} L/min` : ""}</Text>
+          </View>
       </KeyboardAvoidingView>
     </ScrollView>
   );
