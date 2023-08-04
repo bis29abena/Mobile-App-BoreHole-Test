@@ -334,7 +334,11 @@ const EngineeringFacts = () => {
             style={{ width: 350, height: 250 }}
           />
         )}
-        {q && <Text style={{ margin: SIZES.medium }}>q = {q}L/mins</Text>}
+        {q && (
+          <Text style={{ ...styles.title, margin: SIZES.medium }}>
+            q = {q}L/mins
+          </Text>
+        )}
       </View>
       <Modal animationType="slide" transparent={true} visible={loading}>
         <View style={styles.modalContainer}>
