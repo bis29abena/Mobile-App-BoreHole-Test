@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   },
   loginPageContainer: {
     marginTop: 20,
-    display: "flex",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -48,6 +47,16 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 16,
     color: "black"
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: 20,
+    borderRadius: 10,
   },
 });
 

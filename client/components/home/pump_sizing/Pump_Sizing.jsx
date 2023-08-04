@@ -252,19 +252,16 @@ const Pump_Sizing = () => {
             }
           />
         </View>
-        
+
         <Button onPress={handleCalculate} title="Calculate" color="#0F52BA" />
       </View>
-      <View style={styles.inputContainer}>
-          <Text style={styles.title}>
-          
-            {finalAnswer !== "" ? `Pump Size =${finalAnswer}Hp` : ""}
-             
-          </Text>
-        </View>
+      <View style={{flex: 1, justifyContent: "center", alignItems: "center", margin: SIZES.medium}}>
+        <Text style={styles.title}>
+          {finalAnswer !== "" ? `Pump Size =${finalAnswer}Hp` : ""}
+        </Text>
+      </View>
     </ScrollView>
   );
 };
 
 export default Pump_Sizing;
-
